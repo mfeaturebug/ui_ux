@@ -14,7 +14,7 @@ def main():
     '''
 
     # Get Embeddings dataframe
-    @st.cache_data
+    # @st.cache_data
     embeddings = get_embeddings_data_frame()
 
     # Get user input
