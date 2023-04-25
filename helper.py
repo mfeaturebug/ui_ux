@@ -1,9 +1,11 @@
 import numpy as np
 import openai
+import streamlit as st
 import pandas as pd
 from openai.embeddings_utils import cosine_similarity
 
 
+@st.cache_data
 def get_embeddings_data_frame():
     embeddings_path = "./embeddings/ui_ux_embeddings.csv"
     df = pd.read_csv(embeddings_path)
