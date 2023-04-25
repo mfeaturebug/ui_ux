@@ -1,20 +1,10 @@
-import streamlit as st
 import pandas as pd
-from query_test import ask
-import openai
+from helper import *
 
 EMBEDDING_MODEL = "text-embedding-ada-002"
 GPT_MODEL = "gpt-3.5-turbo"
 
 st.title("Everything about becoming a UI UX Expert!")
-# st.sidebar.header("Instructions")
-# st.sidebar.info(
-#     '''Ask anything about being a UI UX Designer!.
-#        '''
-# )
-
-# Set the model engine and your OpenAI API key
-model_engine = "text-curie-001"
 
 
 def main():
@@ -22,12 +12,17 @@ def main():
     This function gets the user input, pass it to ChatGPT function and
     displays the response
     '''
+
+    #Get Embeddings dataframe
+    @st.cache
+    emb = pd.DataFrame()
+    emb = get_embeddings_data_frame()
     # Get user input
     user_query = st.text_input("Who is a UX designer?")
 
     if user_query != ":q" or user_query != "":
         # Pass the query to the ChatGPT function
-        response = ask(user_query)
+        response = "High"
         return st.write(f"{user_query} {response}")
 
 
