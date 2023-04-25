@@ -1,11 +1,7 @@
 import pandas as pd
 from helper import *
 
-EMBEDDING_MODEL = "text-embedding-ada-002"
-GPT_MODEL = "gpt-3.5-turbo"
-
 st.title("Everything about becoming a UI UX Expert!")
-
 
 def main():
     '''
