@@ -15,7 +15,6 @@ def main():
 
     #Get Embeddings dataframe
     # @st.cache
-    # emb = pd.DataFrame()
     emb = get_embeddings_data_frame()
     # Get user input
     user_query = st.text_input("Who is a UX designer?")
@@ -23,7 +22,7 @@ def main():
     if user_query != ":q" or user_query != "":
         # Pass the query to the ChatGPT function
         response = "High"
-        return st.write(f"{user_query} {response}")
+        return st.write(f"{user_query} {emb.head(2)}")
 
 
 # call the main function
