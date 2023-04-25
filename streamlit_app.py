@@ -1,7 +1,8 @@
-import pandas as pd
+import streamlit as st
 from helper import *
 
 st.title("Everything about becoming a UI UX Expert!")
+
 
 def main():
     '''

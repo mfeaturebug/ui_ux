@@ -1,8 +1,7 @@
-import streamlit as st
-import pandas as pd
 import numpy as np
 import openai
-from openai.embeddings_utils import get_embedding, cosine_similarity
+import pandas as pd
+from openai.embeddings_utils import cosine_similarity
 
 
 def get_embeddings_data_frame():
