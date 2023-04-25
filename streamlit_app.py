@@ -13,17 +13,23 @@ def main():
     displays the response
     '''
 
-    #Get Embeddings dataframe
-    # @st.cache
-    emb = get_embeddings_data_frame()
+    # Get Embeddings dataframe
+    @st.cache_data
+    embeddings = get_embeddings_data_frame()
+
     # Get user input
-    user_query = st.text_input("Who is a UX designer?")
+    user_query = st.text_input("Ask a question about UX Design.", value='Who is a UX Designer?')
 
     if user_query != ":q" or user_query != "":
-        # Pass the query to the ChatGPT function
-        response = "High"
-        return st.write(f"{user_query} {emb.head(2)}")
+        # Pass the query to gpt
+        # @st.cache_data
+        context = search_book_context(embeddings, user_query, n=1)
+        response = get_gpt_response(context, user_query)
+        st.write(response['gpt_full_response']['choices'][0]['text'])
+        # st.write(response['file_path'])
+        return
+
+    # call the main function
 
 
-# call the main function
 main()
