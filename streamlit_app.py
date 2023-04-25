@@ -26,7 +26,4 @@ def main():
         # st.write(response['file_path'])
         return
 
-    # call the main function
-
-
 main()
