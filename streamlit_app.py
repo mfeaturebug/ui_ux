@@ -14,8 +14,8 @@ def main():
     '''
 
     #Get Embeddings dataframe
-    @st.cache
-    emb = pd.DataFrame()
+    # @st.cache
+    # emb = pd.DataFrame()
     emb = get_embeddings_data_frame()
     # Get user input
     user_query = st.text_input("Who is a UX designer?")
