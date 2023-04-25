@@ -1,7 +1,7 @@
 import numpy as np
 import openai
-import streamlit as st
 import pandas as pd
+import streamlit as st
 from openai.embeddings_utils import cosine_similarity
 
 
