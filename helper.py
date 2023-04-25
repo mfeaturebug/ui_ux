@@ -2,7 +2,6 @@ import numpy as np
 import openai
 import pandas as pd
 import streamlit as st
-from openai.embeddings_utils import cosine_similarity
 
 
 @st.cache_data
@@ -11,6 +10,10 @@ def get_embeddings_data_frame():
     df = pd.read_csv(embeddings_path)
     df["embedding"] = df.embedding.apply(eval).apply(np.array)
     return df
+
+
+def cosine_similarity(a, b):
+    return np.dot(a, b) / (np.linalg.norm(a) * np.linalg.norm(b))
 
 
 # search through the reviews for a specific product
@@ -35,7 +38,7 @@ def search_book_context(df, query, n=3):
 def get_gpt_response(context, query):
     context = context.iloc[0]
     prefix = 'Use the below text to answer the subsequent question in under 10 sentences. If the answer cannot be found in the text, write "I could not find an answer."'
-    prefix = prefix +'\n\nText: ' + context['text']
+    prefix = prefix + '\n\nText: ' + context['text']
     question = "\n\n Question: " + query
     prompt = prefix + question
     response = {

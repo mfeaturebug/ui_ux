@@ -3,7 +3,6 @@ from helper import *
 
 st.title("Everything about becoming a UI UX Expert!")
 
-
 def main():
     '''
     This function gets the user input, pass it to ChatGPT function and
